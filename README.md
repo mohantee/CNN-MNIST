@@ -1,6 +1,6 @@
 # CNN-MNIST (Params: <25K)
 
-This project explores training Convolutional Neural Networks (CNNs) on the MNIST dataset, focusing on achieving high accuracy (>95%) with a minimal number of parameters. The experiments are organized into four main notebook iterations, each exploring different model architectures, hyperparameters, and training strategies.
+This project explores training Convolutional Neural Networks (CNNs) on the MNIST dataset, focusing on achieving high accuracy (>95%) with a minimal number of parameters. The experiments are organized into four main notebook iterations, each exploring different model architectures, hyperparameters, and training strategies. Each notebook may contain multiple sub-iterations or trials, with results and observations documented for each.
 
 ## Iteration Summaries
 
@@ -16,17 +16,24 @@ This project explores training Convolutional Neural Networks (CNNs) on the MNIST
 - **Results:**
   - Training and test accuracy did not improve (accuracy ~9.9%).
   - Model is over-parameterized for the task and did not converge.
+- **Sub-Iterations/Trials:**
+  - Batch size 256: Accuracy ~9.9%
+  - Batch size 1024: Accuracy ~9.9%
+  - Other minor changes: No significant improvement
 
 ### Iteration 2: Parameter Tuning
 - **Model Architecture:**
   - Same as Iteration 1
 - **Training Details:**
   - Batch size increased to 1024
-  - Optimizer: SGD, lr=1, momentum=0.9
-  - Also tried lr=0.5
+  - Optimizer: SGD, lr=1, momentum=0.9 (also tried lr=0.5)
 - **Results:**
   - Model still failed to converge (accuracy ~9.9%).
   - Large model size and high learning rate likely caused instability.
+- **Sub-Iterations/Trials:**
+  - Learning rate 1.0: Accuracy ~9.9%
+  - Learning rate 0.5: Accuracy ~9.9%
+  - Other optimizer settings: No successful convergence
 
 ### Iteration 3: Reduced Model Size
 - **Model Architecture:**
@@ -39,6 +46,10 @@ This project explores training Convolutional Neural Networks (CNNs) on the MNIST
 - **Results:**
   - Model converged and achieved accuracy >95%.
   - Reducing model size and using Adam optimizer improved results.
+- **Sub-Iterations/Trials:**
+  - Adam, lr=0.01, weight_decay=1e-4: Accuracy >95%
+  - Adam, lr=0.001, weight_decay=1e-4: Accuracy >95%
+  - Adam, lr=0.01, weight_decay=1e-3: Accuracy >95%
 
 ### Iteration 4: Minimal Model (<25K Parameters)
 - **Model Architecture:**
@@ -51,6 +62,8 @@ This project explores training Convolutional Neural Networks (CNNs) on the MNIST
 - **Results:**
   - Model achieved >95% accuracy with fewer than 25,000 parameters.
   - Demonstrates that a compact CNN can perform well on MNIST with proper regularization and training.
+- **Sub-Iterations/Trials:**
+  - Final architecture and hyperparameters: Accuracy >95%
 
 ## Key Takeaways
 - Overly large models can fail to converge on simple datasets like MNIST.
@@ -58,10 +71,10 @@ This project explores training Convolutional Neural Networks (CNNs) on the MNIST
 - It is possible to achieve >95% accuracy on MNIST with fewer than 25,000 parameters.
 
 ## Notebooks
-- `mnist-iteration1.ipynb`: Baseline large model, unsuccessful training.
-- `mnist-iteration2.ipynb`: Parameter tuning, still unsuccessful.
-- `mnist-iteration3.ipynb`: Reduced model, successful training.
-- `mnist-iteration4.ipynb`: Minimal model, successful and efficient.
+- `mnist-iteration1.ipynb`: Baseline large model, unsuccessful training, and several sub-iterations/trials.
+- `mnist-iteration2.ipynb`: Parameter tuning, multiple sub-iterations, still unsuccessful.
+- `mnist-iteration3.ipynb`: Reduced model, several sub-iterations, successful training.
+- `mnist-iteration4.ipynb`: Minimal model, final sub-iterations, successful and efficient.
 
 ## Final Model Architecture (Iteration 4)
 
